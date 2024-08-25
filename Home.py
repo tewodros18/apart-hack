@@ -2,75 +2,65 @@ import streamlit as st
 from streamlit.components.v1 import html
 import base64
 
-
-d = None
-with open('./img/girlsalute.glb', "rb") as f:
-    d = f.read()
-
-res = f"data:@file/octet-stream;base64,{base64.b64encode(d).decode()}"
-
-st.header("Problems In ML Safety")
-
-
-streamlit_style = """
-			<style>
-			@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-
-			html, body, [class*="css"]  {
-			font-family: 'Roboto', sans-serif;
-			}
-			</style>
-			"""
-st.markdown(streamlit_style, unsafe_allow_html=True)
-
-
-html(
-'''
-<script type="module" src="
-https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js
-"></script>
-
-<model-viewer camera-controls touch-action="pan-y" disable-pan autoplay src={data} style="height: 600px; width: 600px;" >
-</model-viewer>
-
-'''.format(data=res)
-, width=800, height=800, scrolling=False,
+  
+st.set_page_config(
+    initial_sidebar_state='collapsed',
+    layout = 'wide',
+    page_title = 'Apart'
+    
 )
 
-st.write("hello")
+st.markdown(
+    """
+<style>
+    [data-testid="collapsedControl"] {
+        display: none
+    }
+    body {
+        font-family: Papyrus;
+        background: red;
+    }
+    input[type=button] {
+        font-family: Papyrus;
 
+    }
+</style>
+""",
+    unsafe_allow_html=True,
+)
 
-'''
-<script>
-(() => {{
-  const modelViewer = document.querySelector('#orbit-demo');
-  const orbitCycle = [
-    '45deg 55deg 4m',
-    '-60deg 110deg 2m',
-    modelViewer.cameraOrbit
-  ];
+st.markdown(
+    """
+<h1 style='text-align: center; color: black; margin-top: 15%; font-family:\"Papyrus\";'>Unsolved Problems in AI Safety</h1>
+""",
+    unsafe_allow_html=True,
+)
 
-  setInterval(() => {{
-    const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
-    modelViewer.cameraOrbit =
-        orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
-  }}, 3000);
-}})();
-</script>
+st.markdown(
+    """
+    <style>
+    .element-container:has(style){
+        display: none;
+    }
+    #button-after {
+        display: none;
+    }
+    .element-container:has(#button-after) {
+        display: none;
+    }
+    .element-container:has(#button-after) + div button {
+        background-color: orange;
+        margin-top: 2%;
+        margin-left: 47%;
+        Text-font: Papyrus;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
 
+if st.button("Explore"):
+    st.switch_page("pages/1_Start.py")
 
-<script type="module">
-  const modelViewer2 = document.querySelector("#hotspot-camera-view-demo");
-  const annotationClicked = (annotation) => {{
-    let dataset = annotation.dataset;
-    modelViewer2.cameraTarget = dataset.target;
-    modelViewer2.cameraOrbit = dataset.orbit;
-  }}
-
-  modelViewer2.querySelectorAll('button').forEach((hotspot) => {{
-    hotspot.addEventListener('click', () => annotationClicked(hotspot));
-  }});
-</script>
-
-
-'''
+    
