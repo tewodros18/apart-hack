@@ -22,7 +22,7 @@ st.markdown(
 )
 
 d = None
-with open('./img/move.glb', "rb") as f:
+with open('./img/Move.glb', "rb") as f:
     d = f.read()
 
 res = f"data:@file/octet-stream;base64,{base64.b64encode(d).decode()}"
