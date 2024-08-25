@@ -99,4 +99,4 @@ if(st.session_state['board5State'] == 0):
         st.button("Finish Demo", on_click=change_state_up)
 if(st.session_state['board7State'] == 1):
     st.session_state['board7State'] = 0
-    st.switch_page("home.py")
+    st.switch_page("Home.py")
