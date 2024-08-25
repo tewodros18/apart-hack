@@ -31,7 +31,7 @@ def change_state_down():
 if(st.session_state['board5State'] == 0):
     st.markdown(
     """
-    <h3 style='text-align: center; color: black; margin-bottom:2%; font-family:\"Papyrus\";'>HAL picked up the wrong idea!</h3>
+    <h3 style='text-align: center; color: black; margin-bottom:2%; font-family:\"Papyrus\";'></h3>
     """,
         unsafe_allow_html=True,
     )
@@ -39,6 +39,12 @@ if(st.session_state['board5State'] == 0):
     with col1:
         st.image("./img/glitch.gif")
     with col2:
+        st.markdown(
+        """
+        <h3 style='text-align: center; color: black;  font-family:\"Papyrus\";'>HAL picked up the wrong idea!</h3>
+        """,
+            unsafe_allow_html=True,
+        )
         st.markdown(
         """
         <h3 style='text-align: center; color: black;  font-family:\"Papyrus\";'>In order to ensure safety, I must learn through failure without being turned off!</h3>
@@ -80,7 +86,7 @@ if(st.session_state['board5State'] == 0):
             .element-container:has(#button-after) + div button {
                 background-color: orange;
                 margin-top: 8%;
-                margin-left: 47%;
+                margin-left: 42%;
                 text-font: Papyrus;
                 }
             </style>
@@ -90,7 +96,7 @@ if(st.session_state['board5State'] == 0):
         st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
 
 
-        st.button("Finish", on_click=change_state_up)
-if(st.session_state['board5State'] == 1):
-    st.session_state['board5State'] = 0
-    st.switch_page("1_home.py")
+        st.button("Finish Demo", on_click=change_state_up)
+if(st.session_state['board7State'] == 1):
+    st.session_state['board7State'] = 0
+    st.switch_page("home.py")

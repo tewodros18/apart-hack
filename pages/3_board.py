@@ -22,7 +22,7 @@ st.markdown(
 )
 
 d = None
-with open('./img/girlsalute.glb', "rb") as f:
+with open('./img/idle.glb', "rb") as f:
     d = f.read()
 
 res = f"data:@file/octet-stream;base64,{base64.b64encode(d).decode()}"
@@ -51,7 +51,7 @@ if(st.session_state['board3State'] == 0):
         https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js
         "></script>
 
-        <model-viewer id="model" camera-controls touch-action="pan-y" disable-pan disable-zoom autoplay src={data} style="height: 600px; width: 600px; margin-left: 25%;" >
+        <model-viewer id="model" camera-controls camera-orbit="-45deg 55deg 4m" touch-action="pan-y" disable-pan disable-zoom autoplay src={data} style="height: 600px; width: 600px; margin-left: 3em;" >
         </model-viewer>
 
         '''.format(data=res)
@@ -108,6 +108,12 @@ if(st.session_state['board3State'] == 1):
         unsafe_allow_html=True,
     )
     col1, col2,col3 = st.columns([3, 2,1])
+    d = None
+    with open('./img/defeat.glb', "rb") as f:
+        d = f.read()
+
+    res = f"data:@file/octet-stream;base64,{base64.b64encode(d).decode()}"
+
     with col1:
         html(
         '''
@@ -115,14 +121,14 @@ if(st.session_state['board3State'] == 1):
         https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js
         "></script>
 
-        <model-viewer id="model" camera-controls touch-action="pan-y" disable-pan disable-zoom src={data} style="height: 600px; width: 600px; margin-left: 25%;" >
+        <model-viewer id="model1" camera-controls touch-action="pan-y" camera-orbit="-45deg 55deg 4m" disable-pan disable-zoom autoplay src={data} style="height: 600px; width: 600px; margin-left: 3em;" >
         </model-viewer>
 
         '''.format(data=res)
         , width=800, height=800, scrolling=False,
         )
     with col2:
-        st.image("./img/pumpkin.jpeg")
+        
         st.markdown(
         """
         <h3 style='text-align: center; color: red;  font-family:\"Papyrus\";'>Ohhhh No!!</h3>
@@ -163,7 +169,8 @@ if(st.session_state['board3State'] == 1):
 
 
         st.button("How did this happen?", on_click=change_state_up)
-    
+    with col3:
+        st.image("./img/pumpkin.jpeg")
 
 if(st.session_state['board3State'] == 2):
     st.markdown(
@@ -173,12 +180,25 @@ if(st.session_state['board3State'] == 2):
         unsafe_allow_html=True,
     )
     col1, col2,col3 = st.columns([3, 2,1])
+    
+    d = None
+    with open('./img/pray.glb', "rb") as f:
+        d = f.read()
+
+    res = f"data:@file/octet-stream;base64,{base64.b64encode(d).decode()}"
+
     with col1:
-       st.markdown(
-        """
-        <h3 style='text-align: center; color: black;  font-family:\"Papyrus\";'>Ohhhh No!!</h3>
-        """,
-            unsafe_allow_html=True,
+        html(
+        '''
+        <script type="module" src="
+        https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js
+        "></script>
+
+        <model-viewer id="model1" camera-controls touch-action="pan-y" disable-pan camera-orbit="-45deg 55deg 4m" disable-zoom autoplay src={data} style="height: 600px; width: 600px; margin-left: 3em;" >
+        </model-viewer>
+
+        '''.format(data=res)
+        , width=800, height=800, scrolling=False,
         )
     with col2:
         st.markdown(
