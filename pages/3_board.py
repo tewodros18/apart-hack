@@ -122,6 +122,7 @@ if(st.session_state['board3State'] == 1):
         , width=800, height=800, scrolling=False,
         )
     with col2:
+        st.image("./img/pumpkin.jpeg")
         st.markdown(
         """
         <h3 style='text-align: center; color: red;  font-family:\"Papyrus\";'>Ohhhh No!!</h3>
@@ -162,8 +163,7 @@ if(st.session_state['board3State'] == 1):
 
 
         st.button("How did this happen?", on_click=change_state_up)
-    with col3:
-        st.image("./img/pumpkin.jpeg")
+    
 
 if(st.session_state['board3State'] == 2):
     st.markdown(

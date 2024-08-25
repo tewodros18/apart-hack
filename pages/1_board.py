@@ -147,4 +147,5 @@ if(st.session_state['curr'] == 1):
         st.button("Continue", on_click=change_state_up,key=randint(1,500))
 
 if(st.session_state['curr'] == 2):
+    st.session_state['curr'] = 0
     st.switch_page("pages/2_board.py")

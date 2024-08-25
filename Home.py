@@ -61,6 +61,6 @@ st.markdown(
 st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
 
 if st.button("Explore"):
-    st.switch_page("pages/1_Start.py")
+    st.switch_page("pages/1_board.py")
 
     
